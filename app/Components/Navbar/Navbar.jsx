@@ -1,20 +1,23 @@
-// Import the Link component from Next.js — used for client-side navigation between pages
-// (Link prefetches routes and avoids full page reloads, unlike a plain <a> tag)
+'use client'
 import Link from 'next/link';
-// Import React — required so the JSX syntax in this file compiles correctly
+import { usePathname } from 'next/navigation';
+
 import React from 'react';
 
-// Define the Navbar component as an arrow function — it renders the top navigation bar
+
 const Navbar = () => {
-    // Store the shared list of nav links in a JSX fragment (<>) so the same
-    // links can be reused in both the mobile dropdown menu and the desktop menu
+  const pathname = usePathname() ;
+  console.log(pathname)
+
     const links = (
       <>
-        {/* Each nav item is wrapped in <li> because the parent is a daisyUI "menu" list */}
-        {/* Link to the /Dashboard route — navigates to the Dashboard page on click */}
-        <li><Link href="/Dashboard" >Dashboard</Link></li>
-        {/* Link to the root route "/" — navigates back to the Home page on click */}
-        <li><Link href="/" >Home</Link></li>
+        <li><Link className={pathname === '/Dashboard' ? 'text-amber-600' : ''} href="/Dashboard" >Dashboard</Link></li>
+        
+        <li><Link className={pathname === '/' ? 'text-red-600' : ''} href="/" >Home</Link></li>
+
+        <li><Link className={pathname === '/About' ? 'text-green-600' : ''}    href="/About" >About</Link></li>
+        
+        <li><Link href="/blogs" >Blogs</Link></li>
       </>
     );
 

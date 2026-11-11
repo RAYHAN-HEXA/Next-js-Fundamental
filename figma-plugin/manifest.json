@@ -1,0 +1,8 @@
+{
+  "name": "My App Design Generator",
+  "id": "1456789012345678901",
+  "api": "1.0.0",
+  "main": "code.js",
+  "editorType": ["figma"],
+  "documentAccess": "dynamic-page"
+}

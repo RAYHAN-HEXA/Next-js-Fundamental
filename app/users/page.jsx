@@ -1,21 +1,16 @@
-// Import the Link component from Next.js — used to create the "View Details" links
-// that navigate each user card to its details page (/users/[userId])
+
 import Link from 'next/link';
-// Import React — required so the JSX syntax in this file compiles correctly
+
 import React from 'react';
 
-// Users list page — declared "async" so we can use await for data fetching.
-// In the App Router, an async Server Component can fetch data directly in its body.
+
 const Userpage = async () => {
-    // Fetch the users list from the JSONPlaceholder fake REST API
-    // (runs on the server, before the page renders — the browser never calls this)
+   
     const res = await fetch('https://jsonplaceholder.typicode.com/users');
-    // Parse the response body from JSON into a JavaScript array of user objects
-    // (the inline note is the author's shorthand for "V8 parses the JSON string")
-    const user = await res.json(); // v8 engineee => json formate
-    // Log the parsed users array to the server terminal (Server Component logs go to the terminal, not the browser console)
+    
+    const user = await res.json(); 
     console.log(user)
-    // Return the JSX markup for the page
+   
     return (
         // JS-line comments are only valid outside JSX — JSX regions use {/* */} comments
         <div  >
